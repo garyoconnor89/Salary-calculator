@@ -1,3 +1,75 @@
 .App {
   text-align: center;
+  font-family: "Titillium Web", sans-serif;
+  background-color: rgb(255, 240, 240);
+  width: 100vw;
+  height: 100vh;
+}
+
+.header-container {
+  background-color: rgb(203, 74, 74);
+}
+
+.header-title {
+  font-size: 50px;
+  color: aliceblue;
+  padding: 10px;
+  margin: 15px;
+}
+
+.header-sub-title {
+  font-size: 25px;
+  color: aliceblue;
+  padding: 10px;
+}
+
+.salary-form {
+  margin: 10px;
+  padding: 10px;
+}
+
+.salary-label,
+.salary-input,
+.salary-button {
+  /* padding: 10px; */
+  margin: 5px;
+  font-size: 20px;
+}
+
+.salary-button {
+  background-color: rgb(203, 74, 74);
+  border: 2px aliceblue solid;
+  border-radius: 15px;
+  padding: 5px 20px 5px 20px;
+}
+
+.salary-button:hover {
+  transform: scale(1.1);
+  transition: 500ms linear;
+}
+
+.salary-display-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.salary-display-container h4 {
+  width: 26%;
+  margin-bottom: 40px;
+  font-size: 24px;
+  border: 1px rgb(203, 74, 74) solid;
+}
+
+.salary-display-container h6 {
+  width: 26%;
+  margin-bottom: 40px;
+  font-size: 20px;
+  border: 1px rgb(203, 74, 74) solid;
+}
+
+.salary-display {
+  font-size: 25px;
 }
