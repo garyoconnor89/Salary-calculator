@@ -45,11 +45,26 @@ describe("Salary 15,000 or below", () => {
     expect(actual.taxPercentage).toBe(14);
     expect(actual.NIPercentage).toBe(8);
   });
+  it("Salaries above 50,000 should return an object with pay, tax and NI properties adjusted by the medium and top salary tax rates", () => {
+    let actual = payCalculator(55000);
+    expect(actual.pay).toBe(41700);
+    expect(actual.tax).toBe(9000);
+    expect(actual.NI).toBe(4300);
+
+    actual = payCalculator(3490762);
+    expect(actual.pay).toBe(2034442);
+    expect(actual.tax).toBe(1383305);
+    expect(actual.NI).toBe(73015);
+  });
+  it("Salaries above 50,000 should return an object with payPercentage, taxPercentage and NIPercentage properties adjusted by the medium and top salary tax rates", () => {
+    let actual = payCalculator(55000);
+    expect(actual.payPercentage).toBe(76);
+    expect(actual.taxPercentage).toBe(16);
+    expect(actual.NIPercentage).toBe(8);
+
+    actual = payCalculator(3490762);
+    expect(actual.payPercentage).toBe(58);
+    expect(actual.taxPercentage).toBe(40);
+    expect(actual.NIPercentage).toBe(2);
+  });
 });
-
-// less than 15,000
-// 15,000 - 50,000
-// more than 50,000
-
-// check for 3 return values
-// check for percentage values
