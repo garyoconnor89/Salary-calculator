@@ -23,6 +23,28 @@ describe("Salary 15,000 or below", () => {
     expect(actual.taxPercentage).toBe(0);
     expect(actual.NIPercentage).toBe(0);
   });
+  it("Salaries between 15,000 and 50,000 should return an object with pay, tax and NI properties adjusted by the medium salary tax rates", () => {
+    let actual = payCalculator(20000);
+    expect(actual.pay).toBe(18400);
+    expect(actual.tax).toBe(1000);
+    expect(actual.NI).toBe(600);
+
+    actual = payCalculator(49534);
+    expect(actual.pay).toBe(38483);
+    expect(actual.tax).toBe(6907);
+    expect(actual.NI).toBe(4144);
+  });
+  it("Salaries between 15,000 and 50,000 should return an object with payPercentage, taxPercentage and NIPercentage properties adjusted by the medium salary tax rates", () => {
+    let actual = payCalculator(20000);
+    expect(actual.payPercentage).toBe(92);
+    expect(actual.taxPercentage).toBe(5);
+    expect(actual.NIPercentage).toBe(3);
+
+    actual = payCalculator(49534);
+    expect(actual.payPercentage).toBe(78);
+    expect(actual.taxPercentage).toBe(14);
+    expect(actual.NIPercentage).toBe(8);
+  });
 });
 
 // less than 15,000
