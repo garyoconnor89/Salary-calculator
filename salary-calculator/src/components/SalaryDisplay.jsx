@@ -10,12 +10,21 @@ class SalaryDisplay extends Component {
     payPercentage: 0,
     taxPercentage: 0,
     NIPercentage: 0,
+    increaseOne: 0,
+    increaseFive: 0,
+    increaseTen: 0,
   };
 
   componentDidMount = () => {
     const { salary_value } = this.props;
     const salaryBreakdown = payCalculator(salary_value);
-    console.log(salaryBreakdown);
+
+    const payRiseOne = payCalculator(Number(salary_value) + 1000);
+    const payRiseFive = payCalculator(Number(salary_value) + 5000);
+    const payRiseTen = payCalculator(Number(salary_value) + 10000);
+
+    console.log(payRiseOne);
+
     const {
       pay,
       tax,
@@ -24,6 +33,11 @@ class SalaryDisplay extends Component {
       taxPercentage,
       NIPercentage,
     } = salaryBreakdown;
+
+    const increaseOne = payRiseOne.pay;
+    const increaseFive = payRiseFive.pay;
+    const increaseTen = payRiseTen.pay;
+
     this.setState({
       salary: salary_value,
       pay,
@@ -32,6 +46,9 @@ class SalaryDisplay extends Component {
       payPercentage,
       taxPercentage,
       NIPercentage,
+      increaseOne,
+      increaseFive,
+      increaseTen,
     });
   };
 
@@ -44,17 +61,25 @@ class SalaryDisplay extends Component {
       payPercentage,
       taxPercentage,
       NIPercentage,
+      increaseOne,
+      increaseFive,
+      increaseTen,
     } = this.state;
     return (
-      <div>
-        <h2>{`Salary: ${salary}`}</h2>
-        <h2>{`Pay: ${pay}`}</h2>
-        <h2>{`Tax: ${tax}`}</h2>
-        <h2>{`NI: ${NI}`}</h2>
-        <h2>{`Pay %: ${payPercentage}`}</h2>
-        <h2>{`Tax %: ${taxPercentage}`}</h2>
-        <h2>{`NI %: ${NIPercentage}`}</h2>
-      </div>
+      <main>
+        <h3 className="salary-display">{`Salary: £${salary}`}</h3>
+        <section className="salary-display-container">
+          <h4>{`Pay: £${pay}`}</h4>
+          <h4>{`Tax: £${tax}`}</h4>
+          <h4>{`NI: £${NI}`}</h4>
+          <h4>{`Pay Percentage: ${payPercentage}%`}</h4>
+          <h4>{`Tax Percentage: ${taxPercentage}%`}</h4>
+          <h4>{`NI Percentage: ${NIPercentage}%`}</h4>
+          <h6>{`With a £1000 payrise you'd take home £${increaseOne}`}</h6>
+          <h6>{`With a £5000 payrise you'd take home £${increaseFive}`}</h6>
+          <h6>{`With a £10000 payrise you'd take home £${increaseTen}`}</h6>
+        </section>
+      </main>
     );
   }
 }
