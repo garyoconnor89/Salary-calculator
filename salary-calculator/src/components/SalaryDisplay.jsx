@@ -1,15 +1,40 @@
 import React, { Component } from "react";
+import payCalculator from "../utils";
 
 class SalaryDisplay extends Component {
   state = {
-    salary: 55000,
-    pay: 41700,
-    tax: 9000,
-    NI: 4300,
-    payPercentage: 76,
-    taxPercentage: 16,
-    NIPercentage: 8,
+    salary: 0,
+    pay: 0,
+    tax: 0,
+    NI: 0,
+    payPercentage: 0,
+    taxPercentage: 0,
+    NIPercentage: 0,
   };
+
+  componentDidMount = () => {
+    const { salary_value } = this.props;
+    const salaryBreakdown = payCalculator(salary_value);
+    console.log(salaryBreakdown);
+    const {
+      pay,
+      tax,
+      NI,
+      payPercentage,
+      taxPercentage,
+      NIPercentage,
+    } = salaryBreakdown;
+    this.setState({
+      salary: salary_value,
+      pay,
+      tax,
+      NI,
+      payPercentage,
+      taxPercentage,
+      NIPercentage,
+    });
+  };
+
   render() {
     const {
       salary,
