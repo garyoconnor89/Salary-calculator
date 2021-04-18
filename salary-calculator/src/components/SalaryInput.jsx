@@ -13,33 +13,35 @@ class SalaryInput extends Component {
   };
 
   handleSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState({ hasSubmitted: true });
   };
 
   render() {
+    const { hasSubmitted } = this.state;
     return (
       <div>
-        {this.state.hasSubmitted ? (
+        {hasSubmitted ? (
           <h1>Here's your salary!</h1>
         ) : (
-          <form onSubmit={this.handleSubmit}>
-            // <label>Input Salary:</label>
-            //{" "}
+          <form className="salary-form" onSubmit={this.handleSubmit}>
+            <label className="salary-label">Input Salary:</label>
+
             <input
+              className="salary-input"
               type="text"
+              placeholder="Enter your salary in GBP"
               value={this.state.body}
               onChange={this.handleChange}
             />
-            // <button>Enter!</button>
-            //
+            <button className="salary-button">Enter!</button>
           </form>
         )}
 
-        {this.state.hasSubmitted ? (
+        {hasSubmitted ? (
           <SalaryDisplay salary_value={this.state.salary_value} />
         ) : (
-          <h1>false</h1>
+          <p>Please input salary above to see results!</p>
         )}
       </div>
     );
