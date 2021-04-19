@@ -79,6 +79,13 @@ class SalaryDisplay extends Component {
           <h6>{`With a £5000 payrise you'd take home £${increaseFive}`}</h6>
           <h6>{`With a £10000 payrise you'd take home £${increaseTen}`}</h6>
         </section>
+        <form action="">
+          <input
+            className="home-button"
+            type="submit"
+            value="Enter New Salary"
+          />
+        </form>
       </main>
     );
   }
