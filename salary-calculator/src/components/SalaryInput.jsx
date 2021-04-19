@@ -9,12 +9,19 @@ class SalaryInput extends Component {
 
   handleChange = (event) => {
     const { value } = event.target;
-    this.setState({ salary_value: value });
+    if (!Number(value)) {
+      alert("Salary must be number");
+    } else {
+      this.setState({ salary_value: value });
+    }
   };
 
   handleSubmit = (event) => {
-    // event.preventDefault();
-    this.setState({ hasSubmitted: true });
+    if (!Number(this.state.salary_value)) {
+      alert("You cannot enter salary if it is not a number");
+    } else {
+      this.setState({ hasSubmitted: true });
+    }
   };
 
   render() {
