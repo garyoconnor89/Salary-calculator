@@ -73,3 +73,19 @@
 .salary-display {
   font-size: 25px;
 }
+
+.home-button {
+  background-color: rgb(203, 74, 74);
+  border: 2px aliceblue solid;
+  border-radius: 15px;
+  padding: 10px 30px 10px 30px;
+  font-size: 25px;
+  color: aliceblue;
+}
+
+.home-button:hover {
+  transform: scale(1.1);
+  transition: 500ms linear;
+}
+
+@media only screen and (max-width);
