@@ -18,12 +18,9 @@ class SalaryDisplay extends Component {
   componentDidMount = () => {
     const { salary_value } = this.props;
     const salaryBreakdown = payCalculator(salary_value);
-
     const payRiseOne = payCalculator(Number(salary_value) + 1000);
     const payRiseFive = payCalculator(Number(salary_value) + 5000);
     const payRiseTen = payCalculator(Number(salary_value) + 10000);
-
-    console.log(payRiseOne);
 
     const {
       pay,
