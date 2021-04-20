@@ -25,7 +25,7 @@ class SalaryInput extends Component {
   };
 
   render() {
-    const { hasSubmitted } = this.state;
+    const { hasSubmitted, salary_value } = this.state;
     return (
       <div>
         {hasSubmitted ? (
@@ -46,7 +46,7 @@ class SalaryInput extends Component {
         )}
 
         {hasSubmitted ? (
-          <SalaryDisplay salary_value={this.state.salary_value} />
+          <SalaryDisplay salary_value={salary_value} />
         ) : (
           <p>Please input salary above to see results!</p>
         )}
